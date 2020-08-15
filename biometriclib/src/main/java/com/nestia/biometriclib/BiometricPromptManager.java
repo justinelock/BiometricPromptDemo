@@ -6,13 +6,9 @@ import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
-import android.support.annotation.NonNull;
-import android.util.Log;
 
+import androidx.annotation.NonNull;
 
-/**
- * Created by gaoyang on 2018/06/19.
- */
 public class BiometricPromptManager {
 
     private static final String TAG = "BiometricPromptManager";
@@ -73,7 +69,7 @@ public class BiometricPromptManager {
             final FingerprintManager manager = mActivity.getSystemService(FingerprintManager.class);
             return manager != null && manager.hasEnrolledFingerprints();
         } else if (isAboveApi23()) {
-            return ((BiometricPromptApi23)mImpl).hasEnrolledFingerprints();
+            return ((BiometricPromptApi23) mImpl).hasEnrolledFingerprints();
         } else {
             return false;
         }
@@ -90,7 +86,7 @@ public class BiometricPromptManager {
             final FingerprintManager fm = mActivity.getSystemService(FingerprintManager.class);
             return fm != null && fm.isHardwareDetected();
         } else if (isAboveApi23()) {
-            return ((BiometricPromptApi23)mImpl).isHardwareDetected();
+            return ((BiometricPromptApi23) mImpl).isHardwareDetected();
         } else {
             return false;
         }

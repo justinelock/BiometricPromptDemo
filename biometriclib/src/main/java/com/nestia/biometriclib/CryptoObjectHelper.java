@@ -5,7 +5,8 @@ import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
-import android.support.annotation.RequiresApi;
+
+import androidx.annotation.RequiresApi;
 
 import java.security.Key;
 import java.security.KeyStore;
@@ -13,9 +14,6 @@ import java.security.KeyStore;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 
-/**
- * Created by gaoyang on 2018/06/26.
- */
 @RequiresApi(Build.VERSION_CODES.M)
 public class CryptoObjectHelper {
     // This can be key name you want. Should be unique for the app.

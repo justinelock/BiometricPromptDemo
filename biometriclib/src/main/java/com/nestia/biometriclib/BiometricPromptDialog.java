@@ -6,9 +6,6 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +15,10 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
-/**
- * Created by gaoyang on 2018/06/19.
- */
 public class BiometricPromptDialog extends DialogFragment {
 
     public static final int STATE_NORMAL = 1;
@@ -36,7 +33,9 @@ public class BiometricPromptDialog extends DialogFragment {
 
     public interface OnBiometricPromptDialogActionCallback {
         void onDialogDismiss();
+
         void onUsePassword();
+
         void onCancel();
     }
 

@@ -1,18 +1,18 @@
 package com.nestia.biometriclib;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyProperties;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Base64;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -22,9 +22,6 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.ECGenParameterSpec;
 
-/**
- * Created by gaoyang on 2018/06/19.
- */
 @RequiresApi(Build.VERSION_CODES.P)
 public class BiometricPromptApi28 implements IBiometricPromptImpl {
 
@@ -47,14 +44,14 @@ public class BiometricPromptApi28 implements IBiometricPromptImpl {
                 .setSubtitle("")
                 .setNegativeButton(activity.getResources().getString(R.string.biometric_dialog_use_password),
                         activity.getMainExecutor(), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (mManagerIdentifyCallback != null) {
-                            mManagerIdentifyCallback.onUsePassword();
-                        }
-                        mCancellationSignal.cancel();
-                    }
-                })
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if (mManagerIdentifyCallback != null) {
+                                    mManagerIdentifyCallback.onUsePassword();
+                                }
+                                mCancellationSignal.cancel();
+                            }
+                        })
                 .build();
 
 
@@ -125,6 +122,7 @@ public class BiometricPromptApi28 implements IBiometricPromptImpl {
 
     /**
      * Generate NIST P-256 EC Key pair for signing and verification
+     *
      * @param keyName
      * @param invalidatedByBiometricEnrollment
      * @return
@@ -164,7 +162,7 @@ public class BiometricPromptApi28 implements IBiometricPromptImpl {
     }
 
     @Nullable
-    private Signature initSignature (String keyName) throws Exception {
+    private Signature initSignature(String keyName) throws Exception {
         KeyPair keyPair = getKeyPair(keyName);
 
         if (keyPair != null) {
